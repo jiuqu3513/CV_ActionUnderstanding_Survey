@@ -12,7 +12,7 @@
     - 输入为姿态提取后的2D骨骼数据（如果是3D骨骼，则可以拆分为(x,y)(x,z)(y,z)三个2D骨骼）, 然后将不同时间步长的热图沿时间维叠加，形成3D热图体（T*H*W）输入3D CNN
     - 3D HeatMap Volumes对上游姿态估计更鲁棒：我们经验发现，Poseconv3D在不同方法获得的输入骨架上具有很好的泛化能力
     - 另外，Poseconv3D依赖于基本表示的热图，它享受了卷积网络体系结构的最新进展，并且更容易与其他模式集成到多流卷积网络中。 这一特性为进一步提高识别性能打开了很大的设计空间
-
+![poseconv3d](./PoseConv3D.png)
 
 ### Action Parsing
 -  Intra- and Inter-Action Understanding via Temporal Action Parsing (**CVPR 2020**) [[PDF](http://openaccess.thecvf.com/content_CVPR_2020/papers/Shao_Intra-_and_Inter-Action_Understanding_via_Temporal_Action_Parsing_CVPR_2020_paper.pdf)] [[Project](https://sdolivia.github.io/TAPOS/)]
@@ -28,11 +28,12 @@
     - 在卷积核上操作，而不是在特征上操作，特征的维数比空间分辨率小一个数量级
     - 在多个视频动作识别和定位基准上，与现有的方法相比，至少具有同等或更好的性能
     - TADACONV作为一种简单的插件操作，计算开销可以忽略不计，可以有效地改进现有的许多视频模型
-- Unsupervised 3D Human Pose Representation with Viewpoint and Pose Disentanglement (**ECCV 2020**) [[arxiv](https://arxiv.org/pdf/2007.07053.pdf)] [[Github](https://github.com/NIEQiang001/unsupervised-human-pose)]
-- Predict & cluster: Unsupervised skeleton based action recognition (**CVPR 2020**) [[arxiv](https://arxiv.org/pdf/1911.12409.pdf)] [[Github](https://github.com/shlizee/Predict-Cluster)]
-- Ms2l: Multi-task self-supervised learning for skeleton based action recognition (**ACMMM 2020**) [[arxiv](https://arxiv.org/pdf/2010.05599.pdf)]
-- Unsupervised feature learning of human actions as trajectories in pose embedding manifold (**WACV 2018**) [[arxiv](https://arxiv.org/abs/1812.02592)]
 
+### Action Learning
+- Set-Supervised Action Learning in Procedural Task Videos via Pairwise Order Consistency(**CVPR 2022**) [[PDF](https://openaccess.thecvf.com/content/CVPR2022/papers/Lu_Set-Supervised_Action_Learning_in_Procedural_Task_Videos_via_Pairwise_Order_CVPR_2022_paper.pdf)] [[Github](https://github.com/ZijiaLewisLu/)]
+    - 研究了集合监督的动作学习问题，其目标是利用训练视频中的集合派生形式的弱监督来学习一个动作分割模型
+    - 提出了一种基于注意力的方法，该方法引入了一种新的成对排序一致性(POC)损失，鼓励对于同一任务的两个视频中的每个共同动作对，动作的注意力遵循相似的顺序
+    - 现有的序列比对方法不同，这些方法将视频中的动作与不同的顺序错位，或者不能可靠地将更多的顺序与更不一致的顺序分开，我们的PoC损失有效地将视频与不同的动作顺序进行比对，并且是可微的，这使得端到端的训练成为可能 ![poc](./POC.png)
 
 # Awesome-Skeleton-based-Action-Recognition <!-- omit in toc -->
 
