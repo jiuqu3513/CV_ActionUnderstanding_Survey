@@ -21,6 +21,21 @@
     - 以高质量的时间分段的形式提供了动作内注释，而不是子动作标签.时间分段将动作划分为不同子动作的片段，隐含地揭示了动作的内部结构，即动作实例是如何由子动作构成的，以及动作间信息，即一个特定的子动作可能共同出现在不同的动作中
     - 进一步在TAPOS上开发了一个改进的时态动作解析框架（基于Transformers,Nips 2017,[PDF](https://proceedings.neurips.cc/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf))，采用两个堆叠的转换器作为核心，以动作实例帧作为查询，以存储体中的参数作为键和值。新的框架在时间动作分析上优于基线，它的结构也使它能够以无监督的方式发现一个动作类内和不同动作类之间的子动作段的语义相似性。通过对透明器的研究，我们还可以揭示额外的动作内信息（例如，哪个子动作对某个动作类别的区分度最高）和动作间信息（例如，哪个子动作通常出现在不同的动作类别中）。
 
+
+### Action Learning
+- Set-Supervised Action Learning in Procedural Task Videos via Pairwise Order Consistency(**CVPR 2022**) [[PDF](https://openaccess.thecvf.com/content/CVPR2022/papers/Lu_Set-Supervised_Action_Learning_in_Procedural_Task_Videos_via_Pairwise_Order_CVPR_2022_paper.pdf)] [[Github](https://github.com/ZijiaLewisLu/)]
+    - 研究了集合监督的动作学习问题，其目标是利用训练视频中的集合派生形式的弱监督来学习一个动作分割模型
+    - 提出了一种基于注意力的方法，该方法引入了一种新的成对排序一致性(POC)损失，鼓励对于同一任务的两个视频中的每个共同动作对，动作的注意力遵循相似的顺序
+    - 现有的序列比对方法不同，这些方法将视频中的动作与不同的顺序错位，或者不能可靠地将更多的顺序与更不一致的顺序分开，我们的PoC损失有效地将视频与不同的动作顺序进行比对，并且是可微的，这使得端到端的训练成为可能 ![poc](./POC.png)
+
+### Action Localization
+- FineAction: A Fine-Grained Video Dataset for Temporal Action Localization(**ICCV 2021**) [[PDF](https://arxiv.org/pdf/2105.11107)] [[Dataset](thttps://deeperaction.github.io/datasets/ﬁneaction)]
+    - Temporal action localization (TAL) 抽象时态动作定位是视频理解中一个重要而富有挑战性的问题.大多数现有的TAL基准建立在操作类的粗粒度上，这在这项任务中表现出两个主要的限制
+    - (1)粗操作会使定位模型在高级上下文信息中过度匹配，而忽略视频中的原子操作细节
+    - (2)粗糙的动作类往往会导致时间边界的模糊注释，不利于时间动作的定位
+    - 开发了一个新的大规模细粒度视频数据集，称为FineAction，用于时间动作定位.总共包含106个动作类别的103k个时间实例，注释在17k个未修剪的视频中.具有精细动作类的丰富多样性、密集的多实例注释、不同类别的动作同时发生等特点
+    - 提出了一个简单的基线方法来处理细粒度的动作检测，在我们的FineAction上实现了13.17%的mAP ![fineaction](./fineaction.png)
+
 ### Video Understanding
 - TADA! TEMPORALLY-ADAPTIVE CONVOLUTIONS FOR VIDEO UNDERSTANDING (**ICLR 2022**) [[arxiv](https://arxiv.org/pdf/2110.06178)]
     - 提出了用于视频理解的时间自适应卷积(TADACONV)，表明沿时间维的自适应权值校准是一种有效的方法，可以方便地模拟视频中复杂的时间动态
@@ -28,12 +43,8 @@
     - 在卷积核上操作，而不是在特征上操作，特征的维数比空间分辨率小一个数量级
     - 在多个视频动作识别和定位基准上，与现有的方法相比，至少具有同等或更好的性能
     - TADACONV作为一种简单的插件操作，计算开销可以忽略不计，可以有效地改进现有的许多视频模型
-
-### Action Learning
-- Set-Supervised Action Learning in Procedural Task Videos via Pairwise Order Consistency(**CVPR 2022**) [[PDF](https://openaccess.thecvf.com/content/CVPR2022/papers/Lu_Set-Supervised_Action_Learning_in_Procedural_Task_Videos_via_Pairwise_Order_CVPR_2022_paper.pdf)] [[Github](https://github.com/ZijiaLewisLu/)]
-    - 研究了集合监督的动作学习问题，其目标是利用训练视频中的集合派生形式的弱监督来学习一个动作分割模型
-    - 提出了一种基于注意力的方法，该方法引入了一种新的成对排序一致性(POC)损失，鼓励对于同一任务的两个视频中的每个共同动作对，动作的注意力遵循相似的顺序
-    - 现有的序列比对方法不同，这些方法将视频中的动作与不同的顺序错位，或者不能可靠地将更多的顺序与更不一致的顺序分开，我们的PoC损失有效地将视频与不同的动作顺序进行比对，并且是可微的，这使得端到端的训练成为可能 ![poc](./POC.png)
+    
+# *******E N D*******
 
 # Awesome-Skeleton-based-Action-Recognition <!-- omit in toc -->
 
