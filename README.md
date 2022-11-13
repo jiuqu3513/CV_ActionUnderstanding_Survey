@@ -1,16 +1,33 @@
 # CV - ActionUnderstanding - Survey - By YK
 
 ## Related Papers
+### Action Recognition
+- Revisiting Skeleton-based Action Recognition (**CVPR 2022**) [[PDF](https://openaccess.thecvf.com/content/CVPR2022/papers/Duan_Revisiting_Skeleton-Based_Action_Recognition_CVPR_2022_paper.pdf)] [[Github](https://github.com/kennymckormick/pyskl)]
+    - 新的基于骨骼的动作识别方法POSeconv3D(relies on a 3D heatmap volume instead of a graph sequence as the base representation ofhuman skeletons)
+    - 与基于GCN的方法相比,Poseconv3D在学习时空特征方面更有效，对姿态估计噪声的鲁棒性更强，并在跨数据集环境下具有更好的泛化能力
+    - 此外，Poseconv3D可以处理多人场景，而无需额外的计算成本
+    - GCN方法在以下几个方面存在局限性：（1）鲁棒性：GCN直接处理人体关节坐标时，其识别能力受到坐标分布偏移的影响，当采用不同的位姿估计器获取坐标时，常常会出现这种情况。 坐标上的一个小扰动往往会导致完全不同的预测(KDD-2019,[[PDF](https://dl.acm.org/doi/pdf/10.1145/3292500.3330851?casa_token=npPj2EW6VRUAAAAA:_Hf_C_XwfP6tMX8SBpQe5Pf3wHwEipMnZIcKUhHppZ23O_3rpZIltd1EcxbWXIqQax-PuilYBz3BDQ))]
+    - (2)互操作性：以前的研究表明，不同模态的表征，如RGB、光流和骨架，是互补的。 因此，这些模式的有效组合通常可以导致动作识别的性能提升。 然而，GCN是在不规则的骨架图上运行的，这使得它很难与通常在规则网格上表示的其他模式融合，尤其是在早期阶段
+    - (3）可扩展性：另外，由于GCN将每个人体关节视为一个节点，GCN的复杂度与人数成线性关系，限制了其适用于涉及多人的场景，如群体活动识别
+    - 输入为姿态提取后的2D骨骼数据（如果是3D骨骼，则可以拆分为(x,y)(x,z)(y,z)三个2D骨骼）, 然后将不同时间步长的热图沿时间维叠加，形成3D热图体（T*H*W）输入3D CNN
+    - 3D HeatMap Volumes对上游姿态估计更鲁棒：我们经验发现，Poseconv3D在不同方法获得的输入骨架上具有很好的泛化能力
+    - 另外，Poseconv3D依赖于基本表示的热图，它享受了卷积网络体系结构的最新进展，并且更容易与其他模式集成到多流卷积网络中。 这一特性为进一步提高识别性能打开了很大的设计空间
+
 
 ### Action Parsing
 -  Intra- and Inter-Action Understanding via Temporal Action Parsing (**CVPR 2020**) [[PDF](http://openaccess.thecvf.com/content_CVPR_2020/papers/Shao_Intra-_and_Inter-Action_Understanding_via_Temporal_Action_Parsing_CVPR_2020_paper.pdf)] [[Project](https://sdolivia.github.io/TAPOS/)]
     - [**TAPOS**], a new dataset developed on sport videos with manual annotations of **sub-actions**, and conduct a study on temporal **action parsing** on top 构建的数据集包含了21个奥运体育类中的16K多个动作实例.特点：有一致和干净的背景，多样的内部结构和丰富的子动作
     - 观察到人类对子动作的边界很敏感，即使不知道它们的类别
-    - 以高质量的时间分段的形式提供了动作内注释，而不是子动作标签.时间分段将动作划分为不同子动作的片段，隐含地揭示了动作的内部结构
+    - 以高质量的时间分段的形式提供了动作内注释，而不是子动作标签.时间分段将动作划分为不同子动作的片段，隐含地揭示了动作的内部结构，即动作实例是如何由子动作构成的，以及动作间信息，即一个特定的子动作可能共同出现在不同的动作中
+    - 进一步在TAPOS上开发了一个改进的时态动作解析框架（基于Transformers,Nips 2017,[PDF](https://proceedings.neurips.cc/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf))，采用两个堆叠的转换器作为核心，以动作实例帧作为查询，以存储体中的参数作为键和值。新的框架在时间动作分析上优于基线，它的结构也使它能够以无监督的方式发现一个动作类内和不同动作类之间的子动作段的语义相似性。通过对透明器的研究，我们还可以揭示额外的动作内信息（例如，哪个子动作对某个动作类别的区分度最高）和动作间信息（例如，哪个子动作通常出现在不同的动作类别中）。
 
 ### Video Understanding
 - TADA! TEMPORALLY-ADAPTIVE CONVOLUTIONS FOR VIDEO UNDERSTANDING (**ICLR 2022**) [[arxiv](https://arxiv.org/pdf/2110.06178)]
-    - 1111
+    - 提出了用于视频理解的时间自适应卷积(TADACONV)，表明沿时间维的自适应权值校准是一种有效的方法，可以方便地模拟视频中复杂的时间动态
+    - 通过根据帧的局部和全局时间背景来校准每帧的卷积权值，从而使空间卷积具有时间建模能力
+    - 在卷积核上操作，而不是在特征上操作，特征的维数比空间分辨率小一个数量级
+    - 在多个视频动作识别和定位基准上，与现有的方法相比，至少具有同等或更好的性能
+    - TADACONV作为一种简单的插件操作，计算开销可以忽略不计，可以有效地改进现有的许多视频模型
 - Unsupervised 3D Human Pose Representation with Viewpoint and Pose Disentanglement (**ECCV 2020**) [[arxiv](https://arxiv.org/pdf/2007.07053.pdf)] [[Github](https://github.com/NIEQiang001/unsupervised-human-pose)]
 - Predict & cluster: Unsupervised skeleton based action recognition (**CVPR 2020**) [[arxiv](https://arxiv.org/pdf/1911.12409.pdf)] [[Github](https://github.com/shlizee/Predict-Cluster)]
 - Ms2l: Multi-task self-supervised learning for skeleton based action recognition (**ACMMM 2020**) [[arxiv](https://arxiv.org/pdf/2010.05599.pdf)]
