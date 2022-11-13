@@ -1,4 +1,21 @@
-# CV_ActionUnderstanding_Survey
+# CV - ActionUnderstanding - Survey - By YK
+
+## Related Papers
+
+### Action Parsing
+-  Intra- and Inter-Action Understanding via Temporal Action Parsing (**CVPR 2020**) [[PDF](http://openaccess.thecvf.com/content_CVPR_2020/papers/Shao_Intra-_and_Inter-Action_Understanding_via_Temporal_Action_Parsing_CVPR_2020_paper.pdf)] [[Project](https://sdolivia.github.io/TAPOS/)]
+    - [**TAPOS**], a new dataset developed on sport videos with manual annotations of **sub-actions**, and conduct a study on temporal **action parsing** on top 构建的数据集包含了21个奥运体育类中的16K多个动作实例.特点：有一致和干净的背景，多样的内部结构和丰富的子动作
+    - 观察到人类对子动作的边界很敏感，即使不知道它们的类别
+    - 以高质量的时间分段的形式提供了动作内注释，而不是子动作标签.时间分段将动作划分为不同子动作的片段，隐含地揭示了动作的内部结构
+
+### Video Understanding
+- TADA! TEMPORALLY-ADAPTIVE CONVOLUTIONS FOR VIDEO UNDERSTANDING (**ICLR 2022**) [[arxiv](https://arxiv.org/pdf/2110.06178)]
+    - 1111
+- Unsupervised 3D Human Pose Representation with Viewpoint and Pose Disentanglement (**ECCV 2020**) [[arxiv](https://arxiv.org/pdf/2007.07053.pdf)] [[Github](https://github.com/NIEQiang001/unsupervised-human-pose)]
+- Predict & cluster: Unsupervised skeleton based action recognition (**CVPR 2020**) [[arxiv](https://arxiv.org/pdf/1911.12409.pdf)] [[Github](https://github.com/shlizee/Predict-Cluster)]
+- Ms2l: Multi-task self-supervised learning for skeleton based action recognition (**ACMMM 2020**) [[arxiv](https://arxiv.org/pdf/2010.05599.pdf)]
+- Unsupervised feature learning of human actions as trajectories in pose embedding manifold (**WACV 2018**) [[arxiv](https://arxiv.org/abs/1812.02592)]
+
 
 # Awesome-Skeleton-based-Action-Recognition <!-- omit in toc -->
 
