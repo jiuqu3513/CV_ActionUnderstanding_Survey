@@ -29,7 +29,7 @@
     - 现有的序列比对方法不同，这些方法将视频中的动作与不同的顺序错位，或者不能可靠地将更多的顺序与更不一致的顺序分开，我们的PoC损失有效地将视频与不同的动作顺序进行比对，并且是可微的，这使得端到端的训练成为可能 ![poc](./POC.png)
 
 ### Action Localization
-- FineAction: A Fine-Grained Video Dataset for Temporal Action Localization(**ICCV 2021**) [[PDF](https://arxiv.org/pdf/2105.11107)] [[Dataset](thttps://deeperaction.github.io/datasets/ﬁneaction)]
+- FineAction: A Fine-Grained Video Dataset for Temporal Action Localization(**ICCV 2021**) [[PDF](https://arxiv.org/pdf/2105.11107)] [[Dataset](https://deeperaction.github.io/datasets/ﬁneaction)]
     - Temporal action localization (TAL) 抽象时态动作定位是视频理解中一个重要而富有挑战性的问题.大多数现有的TAL基准建立在操作类的粗粒度上，这在这项任务中表现出两个主要的限制
     - (1)粗操作会使定位模型在高级上下文信息中过度匹配，而忽略视频中的原子操作细节
     - (2)粗糙的动作类往往会导致时间边界的模糊注释，不利于时间动作的定位
