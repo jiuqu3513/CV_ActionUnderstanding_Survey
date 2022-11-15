@@ -68,6 +68,8 @@
     - (2)粗糙的动作类往往会导致时间边界的模糊注释，不利于时间动作的定位
     - 开发了一个新的大规模细粒度视频数据集，称为FineAction，用于时间动作定位.总共包含106个动作类别的103k个时间实例，注释在17k个未修剪的视频中.具有精细动作类的丰富多样性、密集的多实例注释、不同类别的动作同时发生等特点
     - 提出了一个简单的基线方法来处理细粒度的动作检测，在我们的FineAction上实现了13.17%的mAP ![fineaction](./fineaction.png)
+- Progressive Attention on Multi-Level Dense Difference Maps for Generic Event Boundary Detection(**CVPR 2022**) [[PDF](https://openaccess.thecvf.com/content/CVPR2022/papers/Tang_Progressive_Attention_on_Multi-Level_Dense_Difference_Maps_for_Generic_Event_CVPR_2022_paper.pdf)] [[Github](https://github.com/MCG-NJU/DDM)]
+    - 
 
 ### Video Understanding
 - TADA! TEMPORALLY-ADAPTIVE CONVOLUTIONS FOR VIDEO UNDERSTANDING (**ICLR 2022**) [[arxiv](https://arxiv.org/pdf/2110.06178)]
