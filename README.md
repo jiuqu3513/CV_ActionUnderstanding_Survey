@@ -69,7 +69,12 @@
     - 开发了一个新的大规模细粒度视频数据集，称为FineAction，用于时间动作定位.总共包含106个动作类别的103k个时间实例，注释在17k个未修剪的视频中.具有精细动作类的丰富多样性、密集的多实例注释、不同类别的动作同时发生等特点
     - 提出了一个简单的基线方法来处理细粒度的动作检测，在我们的FineAction上实现了13.17%的mAP ![fineaction](./fineaction.png)
 - Progressive Attention on Multi-Level Dense Difference Maps for Generic Event Boundary Detection(**CVPR 2022**) [[PDF](https://openaccess.thecvf.com/content/CVPR2022/papers/Tang_Progressive_Attention_on_Multi-Level_Dense_Difference_Maps_for_Generic_Event_CVPR_2022_paper.pdf)] [[Github](https://github.com/MCG-NJU/DDM)]
-    - 
+    - 一般事件边界检测(GEBD)是视频理解中的一个重要任务，旨在检测人类自然感知事件边界的时刻，主要挑战是感知不同事件边界的各种时间变化。
+    - 提出了一个有效的、端到端可学习的框架（DDM-NET）解决事件边界的多样性和复杂语义，做了三个显著的改进：
+    - （1）构造了一个特征库来存储空间和时间的多层次特征，为多尺度下的差分计算做准备
+    - （2）为了缓解以往方法在时间建模方面的不足，我们提出了密集差分映射(DDM)来全面描述运动模式
+    - （3）在多级DDM上利用渐进注意来联合聚合外观和运动线索
+    - DDM-NET分别在Kinetics-GEBD和Tapos基准上实现了14%和8%的显著提升
 
 ### Video Understanding
 - TADA! TEMPORALLY-ADAPTIVE CONVOLUTIONS FOR VIDEO UNDERSTANDING (**ICLR 2022**) [[arxiv](https://arxiv.org/pdf/2110.06178)]
