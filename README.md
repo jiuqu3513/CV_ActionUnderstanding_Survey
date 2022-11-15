@@ -74,6 +74,7 @@
     - （1）构造了一个特征库来存储空间和时间的多层次特征，为多尺度下的差分计算做准备
     - （2）为了缓解以往方法在时间建模方面的不足，我们提出了密集差分映射(DDM)来全面描述运动模式
     - （3）在多级DDM上利用渐进注意来联合聚合外观和运动线索
+    - ![image](https://user-images.githubusercontent.com/71006202/201855638-9e509b3c-6877-48ce-aaeb-fb8bb400c81b.png)
     - DDM-NET分别在Kinetics-GEBD和Tapos基准上实现了14%和8%的显著提升
 
 ### Video Understanding
