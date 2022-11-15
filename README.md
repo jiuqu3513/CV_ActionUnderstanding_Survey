@@ -20,6 +20,20 @@
     - 然而，在没有显式运动建模的情况下，学习到的时空特征可能更多地强调视觉外观而不是运动(on visual appearance than on motion)，这可能会影响细粒度时间推理所需的有效运动特征的学习![image](https://user-images.githubusercontent.com/71006202/201815815-bfcc7220-0ef4-48ad-a36e-6bc6463b8775.png)
     - 提出了一种运动表示解耦和集中网络(MDCNet)来解决这两个关键问题:(1)如何将健壮的运动表示从时空特征中分离出来;(2)并进一步有效地利用它们来增强识别特征的学习
     - 方法:(1)设计了一个运动表示解耦(MRD)模块，通过视频和片段视图的对比学习，将时空表示分解为外观和运动特征;(2)在提出的运动表示集中(MRC)模块中，进一步利用解耦的运动表示来学习跨每个动作类的所有实例共享的通用运动原型;(3)将解耦后的运动特征通过语义关系投射到所有的运动原型上，得到每个动作类的集中的动作相关特征，有效地刻画细粒度动作的时间差异，提高识别性能![image](https://user-images.githubusercontent.com/71006202/201815867-3613a4a7-da96-4dc0-aa90-28b5660e316b.png)
+- Bridge-Prompt: Towards Ordinal Action Understanding in Instructional Videos (**CVPR 2022**) [[PDF](https://openaccess.thecvf.com/content/CVPR2022/papers/Li_Bridge-Prompt_Towards_Ordinal_Action_Understanding_in_Instructional_Videos_CVPR_2022_paper.pdf)][[Github](https://github.com/ttlmh/Bridge-Prompt)]
+    - 传统的动作识别方法侧重于单个动作的分析。 然而，它们未能充分推理相邻动作之间的上下文关系，而这些上下文关系为理解长视频提供了潜在的时序逻辑
+    - 提出了一个基于提示的框架Bridge-Prompt（BR-Prompt）来建模相邻动作之间的语义，从而同时从教学视频(instructional videos)中的一系列顺序动作中挖掘上下文和上下文信息
+    - ![image](https://user-images.githubusercontent.com/71006202/201817478-41a338e8-3ddd-4854-b400-60a1d4176731.png)
+    - 个体行为标签重新定义为集成的文本提示，以用于监督，弥合了个体行为语义之间的鸿沟。所生成的文本提示与相应的视频剪辑配对，并通过对比方法共同训练文本编码器和视频编码器
+    - 学习后的视觉编码器具有更强的下游顺序动作相关任务的能力，如动作分割和人体活动识别
+    - 为了分析教学视频，我们不仅需要理解单个动作的语义，还需要学习上下文动作之间的语义关系
+    - 然而，基于图的方法是转换的，受到输入节点和/或边的先验知识的限制。 因此，基于图的方法无法解决未知类型的节点，因而***难以扩展和迁移***
+    - 现有的行为识别框架下，目前描述人类行为的方法是为每个单个行为分配单独的注释，将不同的行为视为单独的类ID。 这对于识别单独的动作是可行的，但由于单个类ID不能提供上下文信息，因此无法描述顺序动作之间的上下文关系.图1中(a)和(b)的例子进一步说明了传统的基于类ID的方法的局限性
+    - 我们发现人类语言是描述相关动作之间顺序语义的有力工具。人类语言能够根据序数和特定句型描述多个顺序发生的事件。例如，拿瓶子和倒水之间的顺序关系可以用“人先拿瓶子，然后倒水”来描述。 语言自然地连接了顺序动作之间的语义
+    - 语言可以直观地外推到未知类型的动作。 给定一个把面包放在面包上的新表达式，它的语义可以从已知类型的动作表达式中推断出来。 图1(c)说明了语言表示的有效性
+    - 提出了一种基于文本的教学视频分析学习方法:基于自然语言处理(NLP)和视觉识别(Learning transferable visual models from natural language supervision,ICML 21[[PDF]](http://proceedings.mlr.press/v139/radford21a/radford21a.pdf))中基于提示的学习方法的最新进展，我们提出了一个三加一的文本提示设计来分析包含一系列顺序动作的视频片段
+    - 开发了一个基于提示的学习框架，在专门设计的视频-文本融合模块的基础上，联合训练视频和文本编码器，从而同时利用上下文和上下文操作信息来更全面地理解教学视频
+    - ![image](https://user-images.githubusercontent.com/71006202/201819379-b75284ef-4855-4a72-aed2-c5d3e649387a.png)
 
 
 ### Action Parsing
