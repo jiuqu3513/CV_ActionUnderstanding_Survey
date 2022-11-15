@@ -78,12 +78,13 @@
     - DDM-NET分别在Kinetics-GEBD和Tapos基准上实现了14%和8%的显著提升
 
 ### Video Understanding
-- TADA! TEMPORALLY-ADAPTIVE CONVOLUTIONS FOR VIDEO UNDERSTANDING (**ICLR 2022**) [[arxiv](https://arxiv.org/pdf/2110.06178)]
+- TADA! TEMPORALLY-ADAPTIVE CONVOLUTIONS FOR VIDEO UNDERSTANDING (**ICLR 2021**) [[arxiv](https://arxiv.org/pdf/2110.06178)]
     - 提出了用于视频理解的时间自适应卷积(TADACONV)，表明沿时间维的自适应权值校准是一种有效的方法，可以方便地模拟视频中复杂的时间动态
     - 通过根据帧的局部和全局时间背景来校准每帧的卷积权值，从而使空间卷积具有时间建模能力
     - 在卷积核上操作，而不是在特征上操作，特征的维数比空间分辨率小一个数量级
     - 在多个视频动作识别和定位基准上，与现有的方法相比，至少具有同等或更好的性能
     - TADACONV作为一种简单的插件操作，计算开销可以忽略不计，可以有效地改进现有的许多视频模型
+    - ![image](https://user-images.githubusercontent.com/71006202/201856303-8821588e-1122-4811-8ba3-0121e6b9f024.png)
     
 # *******E N D*******
 
