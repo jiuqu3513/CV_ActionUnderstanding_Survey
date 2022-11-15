@@ -34,7 +34,33 @@
     - 提出了一种基于文本的教学视频分析学习方法:基于自然语言处理(NLP)和视觉识别(Learning transferable visual models from natural language supervision,ICML 21[[PDF]](http://proceedings.mlr.press/v139/radford21a/radford21a.pdf))中基于提示的学习方法的最新进展，我们提出了一个三加一的文本提示设计来分析包含一系列顺序动作的视频片段
     - 开发了一个基于提示的学习框架，在专门设计的视频-文本融合模块的基础上，联合训练视频和文本编码器，从而同时利用上下文和上下文操作信息来更全面地理解教学视频
     - ![image](https://user-images.githubusercontent.com/71006202/201819379-b75284ef-4855-4a72-aed2-c5d3e649387a.png)
+   
+- GRAPH CONTRASTIVE LEARNING FOR SKELETON-BASED ACTION RECOGNITION(**ICLR 2023**) [[PDF](https://openreview.net/pdf?id=PLUXnnxUdr4)]
+    - 基于骨架的动作识别领域，目前性能最好的图卷积网络利用序列内上下文构造自适应图进行特征聚集,但这种上下文仍然是局部的，因为丰富的交叉序列关系尚未得到明确的研究
+    - ![image](https://user-images.githubusercontent.com/71006202/201863038-4e6336a5-2ee8-4c3d-8d95-2b4b9e8ef4a8.png)
+    - 提出了一个基于骨骼的动作识别的图对比学习框架（SkeletongCL）来探索所有序列的全局上下文
+    - SkeletongCL通过加强图的类区分性，即类内紧凑性和类间离散性，将图学习跨序列关联起来，提高了GCN区分各种行为模式的能力
+    - 还设计了两个记忆库，从实例和语义两个互补的层次丰富跨序列上下文，实现了多上下文尺度下的图对比学习
+    - keletongCL建立了一个新的训练范式，并可以无缝地融入现有的GCNS。 在不丧失通用性的情况下，我们将SkeletongCL与三个GCN(2S-ACGN、CTR-GCN和INFOGCN)结合起来，在NTU60、NTU120和NW-UCLA基准上实现了一致的改进
+    - ![image](https://user-images.githubusercontent.com/71006202/201863322-ee42b89e-a128-42d8-b940-ceb79b2395f2.png)
+    - 我们的方法与它们的不同之处在于：（1）以前的方法像采用集合特征向量来进行对比学习，其中丢失了骨骼中的结构属性。相比之下，SkeletongCL使用图形进行对比，它维护了骨架的结构细节，并提供了关节之间的高阶连接信息。
+    - （2）以往的方法只使用存储库来存储实例级表示。 不同的是，我们的内存库存储实例级和语义级表示，允许我们利用单个序列和特定于类的聚合中的上下文，这两者是相互补充的。
+    - （3）在预训练阶段使用了以往的方法，而SkeletongCL则被引入到全监督环境中，无需额外的预训练成本。 
 
+- HOW HELPFUL ARE CURRENT GRAPH MODELS FOR SKELETON-BASED ACTION RECOGNITION? A TOPOLOGY AGNOSTIC APPROACH (**ICLR 2023**) [[PDF](https://openreview.net/pdf?id=PbXfwJEyKXT)]
+    - 虽然基于GCN的方法不断建立新的最先进的结果，但所提出的体系结构随着各种附加组件而变得越来越复杂
+    - 最近的许多工作试图放松GCN框架的拓扑限制，如局部/稀疏连接和置换不变性。然而，在这样的框架下进一步创新的空间极其有限
+    - 提出了拓扑不可知网络(TOANET)，这是一个简单的体系结构，仅基于全连接(FC)层，而不是基于骨架的动作识别的GCNS。 它是通过以交替的方式链接应用于跨关节（聚合关节信息）和每个关节内（转换关节特征）的FC层来构建的
+    - ToaNet被证明是一个学习人体骨骼数据联合共现的强大体系结构。 ToaNet在NTU RGB+D、NTU RGB+D120和NW-UCLA数据集上取得了更好或可比的结果
+    - 我们希望我们的工作能促进对非GCN方法的进一步研究，消除拓扑结构的限制。
+    - ![image](https://user-images.githubusercontent.com/71006202/201864566-c613693c-8e11-4dae-9e53-e8db3dad6352.png)
+    - 我们贡献了一个纯粹基于全连通层的模型，用于基于骨骼的人类行为识别的空间建模，称为TOANET，提出了一种学习人体关节间多关系交互的新设计。
+    - ![image](https://user-images.githubusercontent.com/71006202/201864864-b2c2311e-77af-4881-b90d-3346bbaae162.png)
+    - ![image](https://user-images.githubusercontent.com/71006202/201864903-e220683c-e7ab-4ea9-98d0-85fd2c1c1dd6.png)
+
+
+
+- HOW HELPFUL ARE CURRENT GRAPH MODELS FOR SKELETON-BASED ACTION RECOGNITION? A TOPOLOGY AGNOSTIC APPROACH (**ICLR 2023**) [[PDF](https://openreview.net/pdf?id=PbXfwJEyKXT)]
 
 ### Action Parsing
 -  Intra- and Inter-Action Understanding via Temporal Action Parsing (**CVPR 2020**) [[PDF](http://openaccess.thecvf.com/content_CVPR_2020/papers/Shao_Intra-_and_Inter-Action_Understanding_via_Temporal_Action_Parsing_CVPR_2020_paper.pdf)] [[Project](https://sdolivia.github.io/TAPOS/)]
@@ -85,6 +111,13 @@
     - 在多个视频动作识别和定位基准上，与现有的方法相比，至少具有同等或更好的性能
     - TADACONV作为一种简单的插件操作，计算开销可以忽略不计，可以有效地改进现有的许多视频模型
     - ![image](https://user-images.githubusercontent.com/71006202/201856303-8821588e-1122-4811-8ba3-0121e6b9f024.png)
+
+### Video Reconstruction
+- VideoMAE: Masked Autoencoders are Data-Efﬁcient Learners for Self-Supervised Video Pre-Training (**NIPS 2022**) [[PDF](https://paperswithcode.com/paper/videomae-masked-autoencoders-are-data-1)][[Github](https://paperswithcode.com/paper/videomae-masked-autoencoders-are-data-1#code)]
+    - 提出了一个简单而有效的视频屏蔽自动编码器，它释放了原始视觉转换器在视频识别方面的潜力。 据我们所知，这是第一个简单使用普通ViT骨干的掩蔽视频预训练框架。 为了解决屏蔽视频建模中的信息泄漏问题，本文提出了一种极高比例的管式屏蔽，提高了视频的性能。
+    - ![image](https://user-images.githubusercontent.com/71006202/201860993-5e34eeb8-0369-4211-9e3f-f092e68a92c8.png)
+    - 与NLP和图像掩蔽建模的结果相一致，我们的视频证明了这种简单的掩蔽和重建策略为自监督视频预训练提供了一个很好的解决方案。 用我们的Videomae预训练的模型明显优于从零开始训练或用对比学习方法预训练的模型。
+    - 我们在掩蔽建模方面获得了额外的重要发现，这些发现在以前的NLP和图像研究中可能被忽略。（1）我们证明了VideoMae是一个数据高效的学习器，只需要3.5K的视频就可以成功地训练它。（2）对于SSVP而言，当源数据集和目标数据集之间存在域转移时，数据质量比数量更重要。
     
 # *******E N D*******
 
