@@ -12,7 +12,15 @@
     - 输入为姿态提取后的2D骨骼数据（如果是3D骨骼，则可以拆分为(x,y)(x,z)(y,z)三个2D骨骼）, 然后将不同时间步长的热图沿时间维叠加，形成3D热图体（T*H*W）输入3D CNN
     - 3D HeatMap Volumes对上游姿态估计更鲁棒：我们经验发现，Poseconv3D在不同方法获得的输入骨架上具有很好的泛化能力
     - 另外，Poseconv3D依赖于基本表示的热图，它享受了卷积网络体系结构的最新进展，并且更容易与其他模式集成到多流卷积网络中。 这一特性为进一步提高识别性能打开了很大的设计空间
-![poseconv3d](./PoseConv3D.png)
+    - ![poseconv3d](./PoseConv3D.png)
+- Fine-grained Action Recognition with Robust Motion Representation Decoupling and Concentration (**ACM MM 2022**) [[PDF](https://dl.acm.org/doi/pdf/10.1145/3503161.3548046?casa_token=r5NidEgxb1sAAAAA:6Q6g1Ye4i30UfGZu6vibCuAnIVBrWOB48ecwzUJ5SATZ9tUIyVNVvAo5h8oyfaye1-jbPGH6G6EzLQ)]
+    - 现有的方法通常侧重于时空特征提取和长时间建模，以刻画细粒度行为的复杂时空模式
+    - 现有动作数据集中的大多数运动信息难以标注，训练一个具有详细运动级别注释（如姿势注释）的模型代价高昂，甚至不可能
+    - 考虑到类内差异较大，类间差异较小，如何从运动表征中识别出与动作相关的特征是细粒度动作识别的关键
+    - 然而，在没有显式运动建模的情况下，学习到的时空特征可能更多地强调视觉外观而不是运动(on visual appearance than on motion)，这可能会影响细粒度时间推理所需的有效运动特征的学习![image](https://user-images.githubusercontent.com/71006202/201815815-bfcc7220-0ef4-48ad-a36e-6bc6463b8775.png)
+    - 提出了一种运动表示解耦和集中网络(MDCNet)来解决这两个关键问题:(1)如何将健壮的运动表示从时空特征中分离出来;(2)并进一步有效地利用它们来增强识别特征的学习
+    - 方法:(1)设计了一个运动表示解耦(MRD)模块，通过视频和片段视图的对比学习，将时空表示分解为外观和运动特征;(2)在提出的运动表示集中(MRC)模块中，进一步利用解耦的运动表示来学习跨每个动作类的所有实例共享的通用运动原型;(3)将解耦后的运动特征通过语义关系投射到所有的运动原型上，得到每个动作类的集中的动作相关特征，有效地刻画细粒度动作的时间差异，提高识别性能![image](https://user-images.githubusercontent.com/71006202/201815867-3613a4a7-da96-4dc0-aa90-28b5660e316b.png)
+
 
 ### Action Parsing
 -  Intra- and Inter-Action Understanding via Temporal Action Parsing (**CVPR 2020**) [[PDF](http://openaccess.thecvf.com/content_CVPR_2020/papers/Shao_Intra-_and_Inter-Action_Understanding_via_Temporal_Action_Parsing_CVPR_2020_paper.pdf)] [[Project](https://sdolivia.github.io/TAPOS/)]
